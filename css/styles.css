@@ -19,7 +19,7 @@
   src: url("../fonts/PTSansNarrow-Bold.woff2");
   font-display: swap;
 }
-ul,li {
+ul,li, h2, h3, p {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -58,18 +58,47 @@ body {
 
 /* NAVIGATION */
 .navigation {
-  width: 430px;
-  margin-left: 30px;
+  display: flex;
+}
+.navigation-logo-link {
+  z-index: 2;
 }
 .navigation-list {
   display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
-
+  width: 430px;
+  margin-left: 30px;
+}
+.navigation-item {
+  position: relative;
+  padding: 20px 17px;
 }
 .navigation-link {
-  padding: 20px 17px;
+  text-decoration: none;
+  color: #000000;
+
+}
+.navigation-link:hover::before{
+  position: absolute;
+  background-color: rgba(117, 98, 87, 0.5);
+  bottom: 0;
+  left: 17px;
+  right: 17px;
+  height: 2px;
+  content: "";
+  z-index: 2;
+}
+.navigation-link-current::before{
+  position: absolute;
+  background-color: #756257;
+  bottom: 0;
+  left: 17px;
+  right: 17px;
+  height: 2px;
+  content: "";
+  z-index: 2;
 }
 .navigation-user {
   display: flex;
@@ -114,9 +143,19 @@ body {
   background-image: url("../img/favorite.svg");
 }
 .hero {
+  position: relative;
   background-image: url("../img/hero-bg.jpg");
   background-repeat: no-repeat;
   min-height: 485px;
+}
+.hero::after {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 57px;
+  background-image: url("../img/hero-divider.svg");
+  background-repeat: no-repeat;
+  content: "";
 }
 .hero-img {
   display: block;
@@ -133,6 +172,8 @@ body {
   font-weight: 700;
   color: #000000;
   text-transform: uppercase;
+  margin-bottom: 31px;
+  padding: 0 273px;
 }
 .hero-info-text {
   font-size: 22px;
@@ -189,7 +230,7 @@ body {
 }
 .advantages-item {
   width: 400px;
-  padding: 182px 85px 81px 85px;
+  padding: 103px 85px 81px 85px;
   background-size: 76px 72px;
   background-position: center top 81px;
   background-repeat: no-repeat;
@@ -212,7 +253,8 @@ body {
   margin: 0 0 30px 0;
 }
 .advantages-desc {
-  margin: 0;
+  display: block;
+  margin-top: 30px;
 }
 .advantages-number {
   font-size: 18px;
@@ -220,10 +262,37 @@ body {
   color: inherit;
   padding: 30px 0;
 }
+/* Are you Interested?Section */
+.info-hotel {
+  padding: 91px 304px 93px 304px;
+}
 
 /* Subscribe Section */
 .subscribe {
+  padding: 94px 200px;
   background-image: url("../img/subscribe-bg.jpg");
+  color: #FFFFFF;
+}
+.subscribe-form {
+  display: flex;
+  width: 800px;
+  height: 60px;
+  margin: 0 auto;
+}
+.subscribe-email {
+  width: 600px;
+  box-sizing: border-box;
+  background-color: #F2F2F2;
+  padding: 20px 22px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: none;
+
+}
+.subscribe-button {
+  width: 200px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .info-title {
   font-size: 30px;
@@ -231,11 +300,13 @@ body {
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 29px;
 }
 .info-desc {
   font-size: 22px;
   line-height: 26px;
   text-align: center;
+  margin-bottom: 56px;
 }
 
 .main-inner {
@@ -437,8 +508,18 @@ body {
   justify-content: center;
   align-items: center;
 }
-.footer-socials-item svg{
-  fill: #82B3D3;
+.footer-socials-link svg{
+  fill: #83B3D3;
+}
+.footer-socials-link:hover svg{
+  fill: #68A2CA;
+}
+.footer-socials-link:hover svg,
+.footer-socials-link:focus svg{
+  fill: #68A2CA;
+}
+.footer-socials-link:active svg{
+  fill: rgba(104, 162, 202, 0.3);
 }
 /* .footer-socials-item:not(:last-child) {
   margin-right: 26px;
@@ -448,19 +529,99 @@ body {
   line-height: 40px;
   text-align: center;
   color: #000000;
+  text-decoration: none;
+}
+.footer-phone:hover,
+.footer-phone:focus {
+  color: #756157;
+}
+.footer-phone:active {
+  background: rgba(117, 97, 87, 0.3);
 }
 
+.footer-copyright svg {
+  fill: #000000;
+}
+.footer-copyright:hover svg,
+.footer-copyright:focus svg {
+  fill: #756157;
+}
+.footer-copyright:active svg {
+  background: rgba(117, 97, 87, 0.3);
+}
 /* Button */
 .button {
+  display: block;
   font-family: inherit;
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
   text-align: center;
   color: #FFFFFF;
-  background-color: #756157;
   text-decoration: none;
   text-transform: uppercase;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  height: 37px;
+}
+.button-big {
+  height: 60px;
+}
+
+/* Brown Button */
+.button-brown {
+  background-color: #756157;
+}
+.button-brown:hover, .button-brown:focus {
+  background: #615048;
+
+}
+.button-brown:active {
+  background: #756157;
+  color:rgba(255, 255, 255, 0.3);
+
+}
+/* Blue button */
+.button-blue {
+  background: #82B3D3;
+
+}
+.button-blue:hover, .button-blue:focus {
+  background: #68A2CA;
+}
+.button-blue:active {
+  background: #82B3D3;
+  color:rgba(255, 255, 255, 0.3);
+}
+
+/* Green button */
+.button-green {
+  background: #7DB54F;
+}
+.button-green:hover, .button-green:focus {
+  background: #6C9E42;
+}
+.button-green:active {
+  background: #7DB54F;
+  color:rgba(255, 255, 255, 0.3);
+}
+
+.button-blue:disabled,
+.button-brown:disabled,
+.button-green:disabled {
+  background-color: #E5E5E5;
+}
+.button-blue-hotel {
+  width: 544px;
+  padding: 12px 0;
+  margin: 0 auto;
+
+}
+.book-now-button {
+  box-sizing: border-box;
+  padding: 9px 15px;
+
 }
 .subscribe-button, .catalog-submit, .button-more {
   background-color: #82B3D3;
