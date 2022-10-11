@@ -29,6 +29,7 @@ body {
   font-size: 18px;
   color: #333;
   background-color: #F2F2F2;
+  margin: 0;
 }
 .visually-hidden {
   position: absolute;
@@ -273,6 +274,10 @@ body {
   background-image: url("../img/subscribe-bg.jpg");
   color: #FFFFFF;
 }
+.subscribe-no-background {
+  color:#000000;
+  background-image: none;
+}
 .subscribe-form {
   display: flex;
   width: 800px;
@@ -330,19 +335,50 @@ body {
   color: #FFFFFF;
   margin: 0;
 }
+
+/* Breadcrumbs */
 .breadcrumbs-list {
   display: flex;
 }
 .breadcrumbs-item {
+  position: relative;
   margin-right: 25px;
 }
+.breadcrumbs-item:not(:last-child)::after{
+  position: absolute;
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-image: url("../img/arrow-right.svg");
+  background-size: 12px 12px;
+  right: -20px;
+  top: 7px;
+}
 .breadcrumbs-link {
+  font-size: 16px;
+  line-height: 21px;
   color: #FFFFFF;
+}
+.breadcrumbs-home {
+  display: block;
+  width: 12px;
+}
+.breadcrumbs-home::before {
+  position: absolute;
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-image: url("../img/breadcrumbs-home.svg");
+  background-size: 12px 12px;
+  top: 7px;
+
 }
 .catalog-header {
   display: flex;
   padding: 60px 0;
 }
+
+/* Catalog Filter */
 .catalog-filter {
   display: flex;
   flex-wrap: wrap;
@@ -371,6 +407,10 @@ body {
   font-size: 20px;
   line-height: 26px;
   margin-bottom: 30px;
+}
+.filter-buttons {
+  display: flex;
+  flex-direction: column;
 }
 
 .catalog-hotels {
@@ -432,11 +472,21 @@ body {
   width: 48px;
   height: 48px;
   background-color: #FFF;
-  border: 1px solid #E5E5E5;
+  border: 2px solid #E5E5E5;
   background-repeat: no-repeat;
   background-repeat: no-repeat;
   background-size: 16px 16px;
   background-position: center;
+  border-radius: 4px;
+  cursor: pointer;;
+}
+.sorting-toggle-current,
+.sorting-toggle:hover,
+.sorting-toggle:active {
+  border: 2px solid #000000;
+}
+.sorting-toggle:focus {
+  border: 2px solid #68A2CA;
 }
 .sorting-toggle:not(:last-child){
   margin-right: 8px;
@@ -481,6 +531,14 @@ body {
   width: 60px;
   height: 60px;
   text-decoration: none;
+}
+/* Blue button */
+.pagination-link:hover, .button-blue:focus {
+  background: #68A2CA;
+}
+.pagination-link:active {
+  background: #82B3D3;
+  color:rgba(255, 255, 255, 0.3);
 }
 .pagination-item:not(:last-child){
   margin-right: 8px;
@@ -561,6 +619,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   text-align: center;
+  box-sizing: border-box;
   border: none;
   cursor: pointer;
   height: 37px;
@@ -621,10 +680,14 @@ body {
 .book-now-button {
   box-sizing: border-box;
   padding: 9px 15px;
+  align-self: center;
 
 }
-.subscribe-button, .catalog-submit, .button-more {
-  background-color: #82B3D3;
+.subscribe-button,
+.catalog-submit,
+.button-more,
+.button-cart {
+  padding: 8px 15px;
 }
 .button-reset {
   background-color: transparent;
