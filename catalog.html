@@ -76,14 +76,14 @@
                     <ul class="catalog-filter-list">
                         <li class="catalog-filter-item">
                             <label class="control">
-                                <input class="visually-hidden control-input" type="checkbox" name="Swimming Pool">
+                                <input class="visually-hidden control-input" type="checkbox" name="Swimming Pool" checked>
                                 <span class="control-mark"></span>
                                 <span class="control-label">Swimming Pool</span>
                             </label>
                         </li>
                         <li class="catalog-filter-item">
                             <label class="control">
-                                <input class="visually-hidden control-input" type="checkbox" name="Parking">
+                                <input class="visually-hidden control-input" type="checkbox" name="Parking" checked>
                                 <span class="control-mark"></span>
                                 <span class="control-label">Parking</span>
                             </label>
@@ -102,21 +102,21 @@
                     <ul class="catalog-filter-list">
                         <li class="catalog-filter-item">
                             <label class="control">
-                                <input type="radio" name="housing-type" value="Hotel">
+                                <input class="visually-hidden control-input"  type="radio" name="housing-type" value="Hotel">
                                 <span class="control-mark"></span>
                                 <span class="control-label">Hotel</span>
                             </label>
                         </li>
                         <li class="catalog-filter-item">
                             <label class="control">
-                                <input type="radio" name="housing-type" value="Motel" checked>
+                                <input class="visually-hidden control-input" type="radio" name="housing-type" value="Motel" checked>
                                 <span class="control-mark"></span>
                                 <span class="control-label">Motel</span>
                             </label>
                         </li>
                         <li class="catalog-filter-item">
                             <label class="control">
-                                <input type="radio" name="housing-type" value="Apartments">
+                                <input class="visually-hidden control-input"  type="radio" name="housing-type" value="Apartments">
                                 <span class="control-mark"></span>
                                 <span class="control-label">Apartments</span>
                             </label>
@@ -127,18 +127,32 @@
                   <fieldset class="catalog-filter-group">
                       <legend class="catalog-filter-title">Price, USD:</legend>
                       <div class="range">
-                          <label class="catalog-filter-range-min">
-                              <input class="range-input" type="text" value="0" name="min-price">
+                      <div class="range-wrapper-inputs">
+                          <div class="range-inputs-min">
+                            <label class="catalog-filter-label">
+                              <span class="range-input-label">from</span>
+                              <input class="range-input" name="min-price" value="10" type="number">
                           </label>
-                          <label class="catalog-filter-range-max">
-                              <input class="range-input" type="text" value="10000" name="max-price">
+                        </div>
+
+                        <div class="range-inputs-max">
+                          <label class="catalog-filter-label">
+                              <span class="range-input-label">to</span>
+                              <input class="range-input" name="max-price" value="500" type="number" style="width: 35px;">
                           </label>
-                      </div>
-                      <div class="range-scale">
-                          <input type="range" name="price-range" min="0" max="10000">
+                        </div>
                       </div>
 
+
+                      <div class="range-scale">
+                        <div class="range-bar" style=" width: 227px;">
+                          <button class="range-toggle toggle-min"></button>
+                          <button class="range-toggle toggle-max"></button>
+                        </div>
+                      </div>
+                    </div>
                   </fieldset>
+
               </div>
                 <div class="filter-buttons">
                     <button class="button button-blue catalog-submit" type="submit">Apply</button>
@@ -156,12 +170,14 @@
                 <span class="catalog-hotels-total">Found Hotels: 4</span>
                 <div class="catalog-sorter">
                   <form class="sorting-type">
+                    <div class="select">
                       <label class="visually-hidden" for="sorting">Hotels Sorter</label>
                       <select class="select-control" id="sorting" name="sorting">
                           <option value="popular" selected>Popular ones</option>
                           <option value="cheap">From Cheapest</option>
                           <option value="expensive">From Expensive</option>
                       </select>
+                    </div>
                       <button class="visually-hidden" type="submit">Sort Hotels</button>
                   </form>
                   <a  class="sorting-toggle sorting-toggle-current toggle-grid-icon">
