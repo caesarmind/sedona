@@ -158,5 +158,61 @@
         </a>
     </footer>
   </div>
+  <div class="modal-container modal-hidden">
+    <div class="modal">
+      <header class="modal-header">
+        <h2 class="modal-title">Find hotels in Sedona</h2>
+        <button class="modal-close-button" type="button"></button>
+      </header>
+      <div class="modal-content">
+        <form class="modal-form" action="https://echo.htmlacademy.ru" method="post">
+          <p class="field-group date-arrival">
+            <span class="form-label">
+            <label for="date-of-arrival">Arrival date:</label>
+          </span>
+          <span class="form-input">
+            <input class="field field-date" id="date-of-arrival" type="text" value="27 April 2021">
+            <span class="input-message error">We can't host with past date.</span>
+          </span>
+          </p>
+          <p class="field-group date-departure">
+            <span class="form-label">
+             <label for="date-of-departure">Departure date:</label>
+            </span>
+            <span class="form-input">
+              <input class="field field-date" id="date-of-departure" type="text" value="21 September 2022">
+              <span class="input-message">You can freely host with choosen date.</span>
+            </span>
+          </p>
+          <p class="field-group adults">
+            <span class="form-label">
+              <label for="adults">Adults:</label>
+            </span>
+            <span class="spinner-field">
+              <button class="spinner-button spinner-left" type="button"></button>
+              <input class="field field-people" id="adults" type="number" value="2">
+              <button class="spinner-button spinner-right" type="button"></button>
+            </span>
+
+          </p>
+          <p class="field-group children">
+            <span class="form-label form-label-icon">
+              <label for="children">Children:</label>
+              <button class="info" type="button">
+                <span class="visually-hidden">See additional information</span>
+              </button>
+            </span>
+            <span class="spinner-field">
+              <button class="spinner-button spinner-left" type="button"></button>
+              <input class="field field-people" id="children" type="number" value="2">
+              <button class="spinner-button spinner-right" type="button"></button>
+            </span>
+          </p>
+          <button class="button button-blue modal-button" type="button">Find Hotel</button>
+      </form>
+      </div>
+
+    </div>
+  </div>
 </body>
 </html>
